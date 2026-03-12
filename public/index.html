@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vstarcam Eye4 Viewer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="header">
+  <div class="hd-section">
+    <span class="hd-label">Camera</span>
+    <span class="hd-value" id="hd-device">—</span>
+  </div>
+  <div class="hd-sep"></div>
+  <div class="hd-section">
+    <span class="hd-label">FW</span>
+    <span class="hd-value" id="hd-fw">—</span>
+  </div>
+  <div class="hd-sep"></div>
+  <div class="hd-section">
+    <span class="hd-label">Battery</span>
+    <span class="hd-value" id="hd-battery">—</span>
+    <div class="hd-bar-wrap"><div class="hd-bar" id="hd-bat-bar"></div></div>
+  </div>
+  <div class="hd-sep"></div>
+  <div class="hd-section">
+    <span class="hd-label">WiFi</span>
+    <span class="hd-value" id="hd-wifi">—</span>
+  </div>
+  <div class="hd-sep"></div>
+  <div class="hd-section">
+    <span class="hd-label">Storage</span>
+    <span class="hd-value" id="hd-storage">—</span>
+    <div class="hd-bar-wrap"><div class="hd-bar" id="hd-sd-bar"></div></div>
+  </div>
+  <div class="hd-sep"></div>
+  <div class="hd-section">
+    <span class="hd-label">FPS</span>
+    <span class="hd-value" id="hd-fps">—</span>
+  </div>
+  <div id="hd-features"></div>
+</div>
+
+<div id="content">
+  <div id="sidebar-dates">
+    <div id="dates-header">
+      <h2>Dates</h2>
+      <input id="date-search" type="text" placeholder="Search date…" autocomplete="off" spellcheck="false">
+    </div>
+    <div id="dates-list"></div>
+  </div>
+
+  <div id="sidebar-clips">
+    <div id="clips-header">
+      <h2>Clips</h2>
+      <div id="clips-count">Select a date</div>
+      <div id="clips-stats"></div>
+      <div id="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="event">Events</button>
+        <button class="filter-btn" data-filter="normal">Normal</button>
+      </div>
+    </div>
+    <div id="clips-list"></div>
+  </div>
+
+  <div id="main">
+    <div id="player-area">
+      <div id="no-video">
+        <div id="no-video-icon">🎥</div>
+        <p>Select a clip from the list</p>
+      </div>
+      <div id="video-error" style="display:none">
+        <div id="video-error-icon">⚠️</div>
+        <p id="video-error-msg">Failed to play this clip.</p>
+      </div>
+      <video id="video-player" controls preload="metadata" style="display:none"></video>
+      <div id="loading" style="display:none">
+        <div id="spinner"></div>
+        Loading...
+      </div>
+    </div>
+    <div id="timeline" style="display:none">
+      <div id="timeline-bar"></div>
+      <div id="timeline-labels">
+        <span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>24:00</span>
+      </div>
+    </div>
+    <div id="info-bar">
+      <span>File: <strong id="info-file">—</strong></span>
+      <span>Time: <strong id="info-time">—</strong></span>
+      <span>Type: <strong id="info-type">—</strong></span>
+      <span>Size: <strong id="info-size">—</strong></span>
+      <span id="info-index-wrap">Clip: <strong id="info-index">—</strong></span>
+      <a id="btn-download" style="display:none" download>↓ Download</a>
+      <button id="btn-timeline">⏱ Timeline</button>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
